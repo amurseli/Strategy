@@ -6,7 +6,6 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "Combatant", menuName = "Strategy/Combatant", order = 0)]
 public class Combatant : ScriptableObject {
     
-    public HealthBar healthBar;
 
     public int maxHealth = 50;
     public int health;
@@ -25,14 +24,12 @@ public class Combatant : ScriptableObject {
 
     private void Awake() {
         health = maxHealth;
-        healthBar.SetMaxHealth(health);
     }
 
     public void recieveDamage(int damage){
         Debug.Log(damage);
         Debug.Log(health);
         health = health - damage;
-        healthBar.SetHealth(health);
     }
 
 }
