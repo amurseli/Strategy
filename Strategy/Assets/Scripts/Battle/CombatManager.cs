@@ -9,5 +9,6 @@ public class CombatManager : MonoBehaviour
     public void computeTurn (BattleState battle, AttackStrategy myAttack, AttackStrategy foeAttack){
         battleState = myAttack.executeAttack(battle);
         battle.foeHealthBar.SetHealth(battle.foe.health);
+        battleState = foeAttack.executeAttack(battle);
     }
 }

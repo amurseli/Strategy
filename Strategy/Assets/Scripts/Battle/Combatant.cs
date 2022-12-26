@@ -6,30 +6,41 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "Combatant", menuName = "Strategy/Combatant", order = 0)]
 public class Combatant : ScriptableObject {
     
+    //initial stats for inspector edition
 
-    public int maxHealth = 50;
-    public int health;
+    [SerializeField]public float initAttack;
+    [SerializeField]public float initDefense;
 
-    public int attack = 10;
-    public int defense = 10;
+    //stats
 
+    public float maxHealth = 50;
+    [HideInInspector]
+    public float health;
+
+    public CombatantStatistic attack;
+    public CombatantStatistic defense;
+     
     public AttackStrategy move1;
     public AttackStrategy move2;
     public AttackStrategy move3;
     public AttackStrategy move4;
 
+
     public Combatant(){
-        move1 = new Punch();
+        attack = new CombatantStatistic(initAttack);
+        defense = new CombatantStatistic(initDefense);
+        move1 = new Punch(this);
+        move2 = new ConfidenceBreaker(this);
     }
 
     private void Awake() {
         health = maxHealth;
     }
 
-    public void recieveDamage(int damage){
-        Debug.Log(damage);
-        Debug.Log(health);
+    public void recieveDamage(float damage){
+
         health = health - damage;
     }
 
 }
+

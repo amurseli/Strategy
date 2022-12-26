@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde7ab51cb838c7429a359320ee3435b, type: 3}
   m_Name: Test1
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 4804829424063144746, guid: 40afd1f71ab2ccb4785530b30e4fa538, type: 3}
+  initAttack: 50
+  initDefense: 10
   maxHealth: 50
-  health: 20
-  attack: 10
-  defense: 10
+  health: 37

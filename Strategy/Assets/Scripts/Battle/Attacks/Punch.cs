@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class Punch : AttackStrategy
 {
+    private Combatant attacker;
+
+    public float power = 80;
+
+    public Punch(Combatant attacker){
+        this.attacker = attacker;
+    }
+
     public BattleState executeAttack(BattleState battle){
-        
-        battle.foe.recieveDamage(10);
-        Debug.Log("Punch executed!");
+
+        float damage = DamageCalculatorSingleton.calculateDamage(power, attacker.attack.getStatistic(), battle.foe.defense.getStatistic());
+        battle.foe.recieveDamage(damage);
 
         return battle;
     }
