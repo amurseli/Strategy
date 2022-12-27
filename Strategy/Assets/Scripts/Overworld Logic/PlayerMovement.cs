@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -62,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
         if(Physics2D.OverlapCircle(transform.position, 0.3f, grassLayer) != null){
             if(Random.Range(1,101) < 10){
                 Debug.Log("Encounter!");
+                //SceneManager.LoadScene(1);
             }
         }
     }

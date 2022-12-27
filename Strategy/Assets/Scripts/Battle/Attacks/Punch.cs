@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class Punch : AttackStrategy
 {
-    private Combatant attacker;
-    private Combatant rival;
+    private CombatantBase attacker;
+    private CombatantBase rival;
 
     public float power = 80;
 
-    public Punch(Combatant attacker){
+    public Punch(CombatantBase attacker){
         this.attacker = attacker;
-        this.rival = attacker.getRival();
     }
 
     public BattleState executeAttack(BattleState battle){
-
-        float damage = DamageCalculatorSingleton.calculateDamage(power, attacker.attack.getStatistic(), rival.defense.getStatistic());
+        rival = attacker.getRival();
+        Debug.Log(rival);
+        Debug.Log("Enemy Defense" + rival.Defense.getStatistic());
+        float damage = DamageCalculatorSingleton.calculateDamage(power, attacker.Attack.getStatistic(), rival.Defense.getStatistic());
         rival.recieveDamage(damage);
 
         return battle;

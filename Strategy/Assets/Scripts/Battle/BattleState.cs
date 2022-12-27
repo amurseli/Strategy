@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class BattleState : MonoBehaviour{
 
-    public Combatant foe;
-    public Combatant player;
+
+    public Combatant foeData;
+    public Combatant playerData;
+
+    [HideInInspector]
+    public CombatantBase foe;
+    [HideInInspector]
+    public CombatantBase player;
 
     public HealthBar foeHealthBar;
     public HealthBar playerHealthBar;
 
-    private void Awake() {
-        foe.health = foe.maxHealth;
-        foeHealthBar.SetMaxHealth(foe.maxHealth);
-        player.health = player.maxHealth;
-        playerHealthBar.SetMaxHealth(player.maxHealth);
+    private void Start() {
+        foe = new CombatantBase(foeData,5);
+        player = new CombatantBase(playerData,5);
+        foeHealthBar.SetMaxHealth(foe.MaxHealth);
+        playerHealthBar.SetMaxHealth(player.MaxHealth);
         foe.setRival(player);
         player.setRival(foe);
     }

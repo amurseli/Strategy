@@ -383,6 +383,7 @@
 "Assets/Scripts/Battle/AttackStrategy.cs"
 "Assets/Scripts/Battle/BattleState.cs"
 "Assets/Scripts/Battle/Combatant.cs"
+"Assets/Scripts/Battle/CombatantBase.cs"
 "Assets/Scripts/Battle/CombatManager.cs"
 "Assets/Scripts/Battle/DamageCalculatorSingleton.cs"
 "Assets/Scripts/CombatantStatistic.cs"

@@ -5,16 +5,16 @@ using UnityEngine;
 public class ConfidenceBreaker : AttackStrategy
 {
 
-    private Combatant attacker;
-    private Combatant rival;
+    private CombatantBase attacker;
+    private CombatantBase rival;
 
-    public ConfidenceBreaker(Combatant attacker){
+    public ConfidenceBreaker(CombatantBase attacker){
         this.attacker = attacker;
-        this.rival = attacker.getRival();
     }
 
     public BattleState executeAttack(BattleState battle){
-        rival.attack.diminishStat(1);
+        this.rival = attacker.getRival();
+        rival.Attack.diminishStat(1);
         return battle;
     }
 }

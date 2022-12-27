@@ -243,8 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29dd6740c2adbe4b958503e1861b341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foe: {fileID: 11400000, guid: e428ff0b713f82c438b4c8dfa0240dd0, type: 2}
-  player: {fileID: 11400000, guid: d3ed031641e893f4cab37f2c4a3679bd, type: 2}
+  foeData: {fileID: 11400000, guid: e428ff0b713f82c438b4c8dfa0240dd0, type: 2}
+  playerData: {fileID: 11400000, guid: d3ed031641e893f4cab37f2c4a3679bd, type: 2}
   foeHealthBar: {fileID: 2019430811}
   playerHealthBar: {fileID: 1709229763}
 --- !u!4 &382230854
@@ -260,7 +260,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -445,7 +445,7 @@ RectTransform:
   - {fileID: 987271863}
   - {fileID: 22036871}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1208,7 +1208,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1897905120
 GameObject:
@@ -1621,6 +1621,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleState: {fileID: 382230853}
+  foeData: {fileID: 0}
+  playerData: {fileID: 0}
 --- !u!4 &2125976755
 Transform:
   m_ObjectHideFlags: 0
@@ -1634,5 +1636,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
