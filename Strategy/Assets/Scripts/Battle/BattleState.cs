@@ -15,6 +15,8 @@ public class BattleState : MonoBehaviour{
         foeHealthBar.SetMaxHealth(foe.maxHealth);
         player.health = player.maxHealth;
         playerHealthBar.SetMaxHealth(player.maxHealth);
+        foe.setRival(player);
+        player.setRival(foe);
     }
 
 }

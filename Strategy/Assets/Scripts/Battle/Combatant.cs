@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "Combatant", menuName = "Strategy/Combatant", order = 0)]
+[CreateAssetMenu(fileName = "Combatant", menuName = "Strategy/Combatant")]
 public class Combatant : ScriptableObject {
     
     //initial stats for inspector edition
 
-    [SerializeField]public float initAttack;
-    [SerializeField]public float initDefense;
+    public float initAttack;
+    public float initDefense;
 
     //stats
 
@@ -17,8 +17,10 @@ public class Combatant : ScriptableObject {
     [HideInInspector]
     public float health;
 
-    public CombatantStatistic attack;
-    public CombatantStatistic defense;
+    public CombatantStatistic attack = new CombatantStatistic(10);
+    public CombatantStatistic defense = new CombatantStatistic(10);
+
+    private Combatant rival;
      
     public AttackStrategy move1;
     public AttackStrategy move2;
@@ -33,13 +35,29 @@ public class Combatant : ScriptableObject {
         move2 = new ConfidenceBreaker(this);
     }
 
-    private void Awake() {
+    public void SetStatistics(){
+        attack = new CombatantStatistic(initAttack);
+        defense = new CombatantStatistic(initDefense);
+        move1 = new Punch(this);
+        move2 = new ConfidenceBreaker(this);
+        health = maxHealth;
+    }
+
+    private void Start() {
         health = maxHealth;
     }
 
     public void recieveDamage(float damage){
 
         health = health - damage;
+    }
+
+    public void setRival(Combatant rival){
+        this.rival = rival;
+    }
+
+    public Combatant getRival(){
+        return rival;
     }
 
 }

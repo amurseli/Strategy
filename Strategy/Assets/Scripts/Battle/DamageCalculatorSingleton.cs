@@ -23,7 +23,6 @@ public class DamageCalculatorSingleton : MonoBehaviour
     public static float calculateDamage(float power, float attackStat, float foeDefense){
         float damage = 0;
         damage = (power * (attackStat / foeDefense)) / 50f;
-        Debug.Log(damage);
         return Mathf.Round(damage);
     }
 }

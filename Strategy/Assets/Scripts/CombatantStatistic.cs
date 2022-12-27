@@ -10,7 +10,6 @@ public class CombatantStatistic{
 
     public CombatantStatistic(float value){
         this.value = value;
-        Debug.Log(value);
         this.trueValue = value;
     }
 

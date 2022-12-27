@@ -387,6 +387,7 @@
 "Assets/Scripts/Battle/DamageCalculatorSingleton.cs"
 "Assets/Scripts/CombatantStatistic.cs"
 "Assets/Scripts/HealthBar.cs"
+"Assets/Scripts/Overworld Logic/PlayerMovement.cs"
 -langversion:9.0
 
 /deterministic
