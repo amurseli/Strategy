@@ -388,6 +388,7 @@
 "Assets/Scripts/CombatantStatistic.cs"
 "Assets/Scripts/HealthBar.cs"
 "Assets/Scripts/Overworld Logic/PlayerMovement.cs"
+"Assets/Scripts/Overworld Logic/RandomEncounters.cs"
 -langversion:9.0
 
 /deterministic
