@@ -14,6 +14,9 @@ public class CombatantBase
     public AttackStrategy move3;
     public AttackStrategy move4;
 
+    public CombatantStatistic Attack;
+    public CombatantStatistic Defense;
+
     public float health;
 
 
@@ -23,14 +26,16 @@ public class CombatantBase
         move1 = new Punch(this);
         move2 = new ConfidenceBreaker(this);
         health = MaxHealth;
+        setStats();
     }
 
-    public CombatantStatistic Attack{
-        get { return new CombatantStatistic(Mathf.FloorToInt((_base.bAttack * _level) / 100f) + 15); }
+    private void setStats(){
+        Attack = new CombatantStatistic(baseStatToEffectiveStat(_base.bAttack));
+        Defense = new CombatantStatistic(baseStatToEffectiveStat(_base.bDefense));
     }
 
-    public CombatantStatistic Defense{
-        get { return new CombatantStatistic(Mathf.FloorToInt((_base.bDefense * _level) / 100f) + 15); }
+    private int baseStatToEffectiveStat(float baseValue){
+        return Mathf.FloorToInt((( baseValue * 2) * _level) / 100f) + 10 + _level;
     }
 
     public float MaxHealth{
@@ -42,7 +47,6 @@ public class CombatantBase
     }
 
     public CombatantBase getRival(){
-        Debug.Log(this.rival.Defense.getStatistic());
         return this.rival;
     }
 
@@ -52,6 +56,10 @@ public class CombatantBase
 
     public void setHealth(float health){
         this.health = health;
+    }
+
+    public int getLevel(){
+        return _level;
     }
 
     public void recieveDamage(float damage){

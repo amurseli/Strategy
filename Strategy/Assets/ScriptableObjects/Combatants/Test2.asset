@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde7ab51cb838c7429a359320ee3435b, type: 3}
   m_Name: Test2
   m_EditorClassIdentifier: 
-  initAttack: 10
-  initDefense: 10
+  _name: 
+  frontSprite: {fileID: 0}
+  backSprite: {fileID: 0}
+  bAttack: 0
+  bDefense: 2
   maxHealth: 500
-  health: 410

@@ -20,9 +20,16 @@ public class DamageCalculatorSingleton : MonoBehaviour
         } 
     }
 
-    public static float calculateDamage(float power, float attackStat, float foeDefense){
+    public static float calculateDamage(float movePower, CombatantBase user, CombatantBase target){
         float damage = 0;
-        damage = (power * (attackStat / foeDefense)) / 50f;
-        return Mathf.Round(damage);
+
+        float userAtk = user.Attack.getStatistic();
+        float targetDef = user.Defense.getStatistic();
+        float userLvl = user.getLevel();
+
+        Debug.Log("Attack: " + userAtk + " Defense: " + targetDef);
+        damage = Mathf.CeilToInt(((((2 * userLvl) / 5) + 2 ) * movePower * (userAtk / targetDef)) / 50f);
+        Debug.Log(damage);
+        return damage;
     }
 }

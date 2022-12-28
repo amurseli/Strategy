@@ -15,9 +15,7 @@ public class Punch : AttackStrategy
 
     public BattleState executeAttack(BattleState battle){
         rival = attacker.getRival();
-        Debug.Log(rival);
-        Debug.Log("Enemy Defense" + rival.Defense.getStatistic());
-        float damage = DamageCalculatorSingleton.calculateDamage(power, attacker.Attack.getStatistic(), rival.Defense.getStatistic());
+        float damage = DamageCalculatorSingleton.calculateDamage(power, attacker, rival);
         rival.recieveDamage(damage);
 
         return battle;
