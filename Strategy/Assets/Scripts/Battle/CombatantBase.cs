@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CombatantBase 
 {
-    Combatant _base;
+    public Combatant _base; //Aunque se llame combatatant base, los nombres estan puestos al reves, asi que CombatantBase tiene a Combatant en _base
     int _level;
 
     private CombatantBase rival;

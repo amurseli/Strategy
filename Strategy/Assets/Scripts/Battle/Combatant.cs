@@ -8,7 +8,7 @@ public class Combatant : ScriptableObject {
     
     //initial stats for inspector edition
 
-    [SerializeField] string _name;
+    [SerializeField] public string _name;
     
     [SerializeField] Sprite frontSprite;
     [SerializeField] Sprite backSprite;

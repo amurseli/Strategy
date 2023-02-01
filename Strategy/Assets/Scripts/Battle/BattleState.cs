@@ -13,6 +13,8 @@ public class BattleState : MonoBehaviour{
     [HideInInspector]
     public CombatantBase player;
 
+    [SerializeField] BattleDialogueBox dialogueBox;
+
     public HealthBar foeHealthBar;
     public HealthBar playerHealthBar;
 
@@ -23,6 +25,13 @@ public class BattleState : MonoBehaviour{
         playerHealthBar.SetMaxHealth(player.MaxHealth);
         foe.setRival(player);
         player.setRival(foe);
+
+        StartCoroutine(dialogueBox.TypeDialogue($"A wild {foe._base._name} has appeared"));
     }
 
+    public void writeText(){
+        if(dialogueBox.finishedWriting){
+            StartCoroutine(dialogueBox.TypeDialogue(DialogueManagerSingleton.getNextLine()));
+        }
+    }
 }

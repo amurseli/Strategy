@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde7ab51cb838c7429a359320ee3435b, type: 3}
   m_Name: Test1
   m_EditorClassIdentifier: 
-  _name: 
+  _name: Faka
   frontSprite: {fileID: 0}
   backSprite: {fileID: 0}
   bAttack: 100

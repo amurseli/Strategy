@@ -17,6 +17,7 @@ public class Punch : AttackStrategy
         rival = attacker.getRival();
         float damage = DamageCalculatorSingleton.calculateDamage(power, attacker, rival);
         rival.recieveDamage(damage);
+        DialogueManagerSingleton.addDialogueLine($"{attacker._base._name} uses Punch");
 
         return battle;
     }

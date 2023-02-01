@@ -15,6 +15,7 @@ public class ConfidenceBreaker : AttackStrategy
     public BattleState executeAttack(BattleState battle){
         this.rival = attacker.getRival();
         rival.Attack.diminishStat(1);
+        DialogueManagerSingleton.addDialogueLine($"{attacker._base._name} uses Confidence Breaker");
         return battle;
     }
 }
