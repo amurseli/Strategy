@@ -44,8 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce63afdc78b0c924a938cab4ea4858c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _base: {fileID: 11400000, guid: e6373cfebeb345e4fa6d0f8d07136efa, type: 2}
   unitName: Manu
   unitLevel: 5
   damage: 5
   maxHP: 20
   currentHP: 20
+  baseAttack: 0
+  baseDefense: 0
+  HUD: {fileID: 0}

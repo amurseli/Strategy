@@ -4,5 +4,8 @@ using UnityEngine;
 
 public interface AttackStrategy{
 
-    abstract void executeAttack(Unit enemyUnit);
+
+    abstract bool executeAttack(Unit unit, Unit enemyUnit);
+
+    public string getName();
 }

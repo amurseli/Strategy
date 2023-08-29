@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &22036871
 RectTransform:
   m_ObjectHideFlags: 0
@@ -444,7 +444,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 3980446001151753920, guid: 4db34d066ef01444981557ef5486adda, type: 3}
   playerBattleStation: {fileID: 1396416550}
   enemyBattleStation: {fileID: 1777228891}
-  dialgueBox: {fileID: 879937800}
+  dialogueBox: {fileID: 879937800}
   playerHUD: {fileID: 1997417876}
   enemyHUD: {fileID: 1888070132}
   state: 0
@@ -1013,7 +1013,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &987271863
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1108,8 +1108,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -2.609993, y: -0.00041007996}
-  m_SizeDelta: {x: -5.22, y: -0.00080872}
+  m_AnchoredPosition: {x: -0.29000092, y: -0.0005168915}
+  m_SizeDelta: {x: -9.86, y: -0.00060272}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1024370341
 MonoBehaviour:
@@ -1603,7 +1603,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1503842825
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2019,6 +2019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 910566223}
   levelText: {fileID: 1919967539}
+  valueHP: {fileID: 1971981458}
   hpSlider: {fileID: 1888070133}
 --- !u!114 &1888070133
 MonoBehaviour:
@@ -2972,6 +2973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 1918692030}
   levelText: {fileID: 1458053655}
+  valueHP: {fileID: 310834947}
   hpSlider: {fileID: 1997417874}
 --- !u!1 &2043029730
 GameObject:

@@ -44,8 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce63afdc78b0c924a938cab4ea4858c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _base: {fileID: 11400000, guid: 8b677a2cb14741341b2b9eea96529079, type: 2}
   unitName: Faka
   unitLevel: 99
   damage: 15
-  maxHP: 25
-  currentHP: 20
+  maxHP: 250
+  currentHP: 200
+  baseAttack: 0
+  baseDefense: 0
+  HUD: {fileID: 0}

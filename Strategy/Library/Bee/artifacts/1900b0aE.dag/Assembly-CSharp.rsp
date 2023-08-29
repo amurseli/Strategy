@@ -367,14 +367,16 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
-"Assets/battleHUD.cs"
-"Assets/BattleSystem.cs"
-"Assets/HealthBar.cs"
-"Assets/Scripts/Battle/AttackStrategy/AttackS/Punch.cs"
+"Assets/ScriptableObjects/Combatants/Combatant.cs"
+"Assets/Scripts/Battle/AttackStrategy/Attacks/Punch.cs"
 "Assets/Scripts/Battle/AttackStrategy/AttackStrategy.cs"
+"Assets/Scripts/Battle/battleHUD.cs"
+"Assets/Scripts/Battle/BattleSystem.cs"
+"Assets/Scripts/Battle/DamageCalculatorSingleton.cs"
+"Assets/Scripts/Battle/Unit.cs"
+"Assets/Scripts/HealthBar.cs"
 "Assets/Scripts/Overworld Logic/PlayerMovement.cs"
 "Assets/Scripts/Overworld Logic/RandomEncounters.cs"
-"Assets/Scripts/Unit.cs"
 -langversion:9.0
 
 /deterministic
