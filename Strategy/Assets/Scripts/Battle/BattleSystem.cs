@@ -11,8 +11,11 @@ public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON , LOST }
 public class BattleSystem : MonoBehaviour
 {
 
-    public GameObject playerPrefab;
-    public GameObject enemyPrefab;
+    public bool inBattle = false;
+
+    public GameObject enemyGO;
+    public GameObject playerGO;
+    GameObject enemyPrefab;
 
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
@@ -25,26 +28,29 @@ public class BattleSystem : MonoBehaviour
     Unit playerUnit;
     Unit enemyUnit;
 
+    public GameObject battleObjects;
+
     public BattleState state;
-    // Start is called before the first frame update
-    void Start()
+
+
+    public void StartBattle(GameObject enemy)
     {
+        enemyGO = enemy;
+        enemyBattleStation = enemy.transform;
         state = BattleState.START;
+        inBattle = true;
+        playerGO.GetComponent<PlayerMovement>().stopAllMovement();
         StartCoroutine(SetupBattle());
     }
 
     IEnumerator SetupBattle(){
-
-        GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
         playerUnit = playerGO.GetComponent<Unit>();
-
-        GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGO.GetComponent<Unit>();
 
-        dialogueBox.text = "Un " + enemyUnit.unitName + " salvaje aparece...";
+        playerUnit.setHUD();
+        enemyUnit.setHUD();
 
-        playerUnit.setHUD(playerHUD);
-        enemyUnit.setHUD(enemyHUD);
+        dialogueBox.text = "Un " + enemyUnit.unitName + " salvaje aparece...";
 
         yield return new WaitForSeconds(1f);
 
@@ -73,18 +79,21 @@ public class BattleSystem : MonoBehaviour
     }
 
     void EndBattle(){
-            Debug.Log(state);
-        if(state == BattleState.WON){
-            SceneManager.LoadScene("basicScene");
+        Debug.Log(state);
+        inBattle = false;
+        if(state == BattleState.WON){ 
+            enemyGO.GetComponent<Enemy>().defeat();
+            playerGO.GetComponent<PlayerMovement>().resumeAllMovement();
+            battleObjects.SetActive(false);
         }
         else{
+            playerGO.GetComponent<PlayerMovement>().resumeAllMovement();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
     private bool executeAttack(Unit unit, int attack, Unit target){
         bool isDead = unit.executeAttack(attack,target);
-        target.getHUD().SetHP(target.currentHP);
         return isDead;
     }
 
@@ -110,6 +119,10 @@ public class BattleSystem : MonoBehaviour
             state = BattleState.PLAYERTURN;
             PlayerTurn();
         }
+    }
+
+    public bool getBattleState(){
+        return inBattle;
     }
 
     public void OnAttack1Button(){

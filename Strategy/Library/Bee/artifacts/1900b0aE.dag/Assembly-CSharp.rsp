@@ -326,6 +326,8 @@
 -r:"D:/RicksLab/Proyects/Unity/Strategy/Strategy/Strategy/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll"
 -r:"D:/RicksLab/Proyects/Unity/Strategy/Strategy/Strategy/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.Unsafe.dll"
 -r:"D:/RicksLab/Proyects/Unity/Strategy/Strategy/Strategy/Library/PackageCache/com.unity.visualscripting@1.8.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Cinemachine.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/com.unity.cinemachine.editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/PsdPlugin.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Animation.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Animation.Runtime.ref.dll"
@@ -375,8 +377,9 @@
 "Assets/Scripts/Battle/DamageCalculatorSingleton.cs"
 "Assets/Scripts/Battle/Unit.cs"
 "Assets/Scripts/HealthBar.cs"
+"Assets/Scripts/Overworld Logic/CharacterController.cs"
+"Assets/Scripts/Overworld Logic/Enemy.cs"
 "Assets/Scripts/Overworld Logic/PlayerMovement.cs"
-"Assets/Scripts/Overworld Logic/RandomEncounters.cs"
 -langversion:9.0
 
 /deterministic

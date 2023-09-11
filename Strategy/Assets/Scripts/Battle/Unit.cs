@@ -7,7 +7,6 @@ public class Unit : MonoBehaviour
     public Combatant _base;
     public string unitName;
     public int unitLevel;
-    public int damage;
     public int maxHP;
     public int currentHP;
     public int Attack{ get; set; }
@@ -51,7 +50,7 @@ public class Unit : MonoBehaviour
 
     public bool TakeDamage(int dmg){
         currentHP -= dmg;
-
+        HUD.SetHP(currentHP);
         if(currentHP <= 0){
             return true;
         }else{
@@ -73,9 +72,8 @@ public class Unit : MonoBehaviour
         }
     }
  
-    public void setHUD(battleHUD HUD){
+    public void setHUD(){
         HUD.SetHUD(this);
-        this.HUD = HUD;
     }
 
     public battleHUD getHUD() { return this.HUD; }

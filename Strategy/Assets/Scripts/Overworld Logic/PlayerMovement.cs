@@ -1,70 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour
-{
-    public float moveSpeed = 10f;
+public class PlayerMovement : MonoBehaviour {
 
-    public Rigidbody2D rb;
-    public Camera cam;
+	public CharacterController controller;
 
-    public LayerMask solidLayer;
-    public LayerMask grassLayer;
+	public float runSpeed = 40f;
 
-    private bool isMoving;
-    public Transform movePoint;
+	float horizontalMove = 0f;
+	bool jump = false;
 
-    Vector2 movement;
-    Vector2 mousePos;
+	bool movementAllowed = true;
+	bool crouch = false;
+	
+	// Update is called once per frame
+	void Update () {
+		if(movementAllowed){
+			horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-    private void Start() {
-        movePoint.parent = null;
-    }
+			if (Input.GetButtonDown("Jump"))
+			{
+				jump = true;
+			}
+		}
 
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log("Is Walkable: " + isWalkable());
-        if(isWalkable()){
-            transform.position = Vector3.MoveTowards(transform.position,movePoint.position, moveSpeed * Time.deltaTime);    
+	}
 
-        }
-        else{
-            movePoint.position = transform.position;
-        }
+	public void FixedUpdate ()
+	{
+		// Move our character
+		controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
+		jump = false;
+	}
 
-        if(Vector3.Distance(transform.position, movePoint.position) <= .05f){
-            
-            if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f){
-                movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
-                CheckForEncounters();
-            }
-            if(Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f){
-                movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
-                CheckForEncounters();
-            }
-        }
+	public void resumeAllMovement(){
+		if(!movementAllowed){
+			movementAllowed = true;	
+		}
+	}
 
-        cam.transform.position = new Vector3(transform.position.x, transform.position.y, -16);
-       
-    }
+	public void stopAllMovement(){
+		if(movementAllowed){
+			movementAllowed = false;	
+		}
+	}
 
-
-    private bool isWalkable(){
-        if(Physics2D.OverlapCircle(movePoint.position, 0.3f, solidLayer) != null){
-            return false;
-        }
-        return true;
-    }
-
-    private void CheckForEncounters(){
-        if(Physics2D.OverlapCircle(transform.position, 0.3f, grassLayer) != null){
-            if(Random.Range(1,101) < 10){
-                Debug.Log("Encounter!");
-                //SceneManager.LoadScene(1);
-            }
-        }
-    }
 }
