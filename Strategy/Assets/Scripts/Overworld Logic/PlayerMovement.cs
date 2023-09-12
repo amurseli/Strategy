@@ -12,14 +12,14 @@ public class PlayerMovement : MonoBehaviour {
 	bool jump = false;
 
 	bool movementAllowed = true;
-	bool crouch = false;
+
 	
 	// Update is called once per frame
 	void Update () {
 		if(movementAllowed){
 			horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-			if (Input.GetButtonDown("Jump"))
+			if (Input.GetButton("Jump"))
 			{
 				jump = true;
 			}
